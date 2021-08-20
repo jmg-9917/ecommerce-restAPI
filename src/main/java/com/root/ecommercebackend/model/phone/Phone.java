@@ -1,13 +1,28 @@
 package com.root.ecommercebackend.model.phone;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "phone")
 public class Phone {
+    @Id
     private int phone_ID;
+    @Column(nullable = false)
     private int user_ID;
+    @Column(nullable = false)
     private int country_code;
+    @Column(nullable = false)
     private int area_code;
+    @Column(nullable = false)
     private int phone_number;
+    @Column(nullable = false)
     private int extention;
+    @Column(nullable = false)
     private String phone_type;
+    @Column(nullable = false)
     private boolean primary_phone;
 
     public Phone(int phone_ID, int user_ID, int country_code, int area_code, int phone_number, int extention, String phone_type, boolean primary_phone) {
@@ -19,6 +34,10 @@ public class Phone {
         this.extention = extention;
         this.phone_type = phone_type;
         this.primary_phone = primary_phone;
+    }
+
+    public Phone() {
+
     }
 
     public int getPhone_ID() {

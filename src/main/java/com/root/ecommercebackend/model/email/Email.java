@@ -1,15 +1,22 @@
 package com.root.ecommercebackend.model.email;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "email")
 public class Email {
     @Id
-    private int email_ID;
+    private Integer email_ID;
+    @Column(nullable = false)
     private int user_ID;
+    @Column(nullable = false)
     private String email;
+    @Column(nullable = false)
     private String email_type;
+    @Column(nullable = false)
     private boolean primary_email;
 
     public Email(int email_ID, int user_ID, String email, String email_type, boolean primary_email) {

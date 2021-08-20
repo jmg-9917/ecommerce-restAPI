@@ -4,9 +4,10 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "User")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
     private Integer user_ID;
     @Column(nullable = false)
@@ -40,6 +41,9 @@ public class User {
 
     public User() {
 
+    }
+    public void setUser_ID(Integer ID) {
+        this.user_ID = user_ID;
     }
 
     public Integer getUser_ID() {

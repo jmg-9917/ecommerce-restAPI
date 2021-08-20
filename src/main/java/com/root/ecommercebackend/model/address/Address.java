@@ -1,18 +1,37 @@
 package com.root.ecommercebackend.model.address;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "address")
 public class Address {
-    private int address_ID;
+    @Id
+    private Integer address_ID;
+    @Column(nullable = false)
+    private Integer user_ID;
+    @Column(nullable = false)
     private String address;
+    @Column(nullable = false)
     private String apt_suite;
+    @Column(nullable = false)
     private String city;
+    @Column(nullable = false)
     private String state;
+    @Column(nullable = false)
     private int zip_code;
+    @Column(nullable = false)
     private String country;
+    @Column(nullable = false)
     private String address_type;
+    @Column(nullable = false)
     private boolean primary_address;
 
-    public Address(int address_ID, String address, String apt_suite, String city, String state, int zip_code, String country, String address_type, boolean primary_address) {
+    public Address(Integer address_ID, Integer user_id, String address, String apt_suite, String city, String state, int zip_code, String country, String address_type, boolean primary_address) {
         this.address_ID = address_ID;
+        user_ID = user_id;
         this.address = address;
         this.apt_suite = apt_suite;
         this.city = city;
@@ -23,12 +42,24 @@ public class Address {
         this.primary_address = primary_address;
     }
 
+    public Address() {
+
+    }
+
     public int getAddress_ID() {
         return address_ID;
     }
 
     public void setAddress_ID(int address_ID) {
         this.address_ID = address_ID;
+    }
+
+    public Integer getUser_ID() {
+        return user_ID;
+    }
+
+    public void setUser_ID(Integer user_ID) {
+        this.user_ID = user_ID;
     }
 
     public String getAddress() {
