@@ -1,23 +1,32 @@
 package com.root.ecommercebackend.model.user;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 public class User {
     @Id
-    private int user_ID;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false, updatable = false)
+    private Integer user_ID;
+    @Column(nullable = false)
     private String first_name;
+    @Column(nullable = false)
     private String last_name;
+    @Column(nullable = false)
     private LocalDate date_of_birth;
+    @Column(nullable = false)
     private String gender;
-    private int primary_address;
-    private int primary_phone;
-    private int primary_email;
-    private int primary_payment;
+    @Column(nullable = false, updatable = false)
+    private Integer primary_address;
+    @Column(nullable = false, updatable = false)
+    private Integer primary_phone;
+    @Column(nullable = false, updatable = false)
+    private Integer primary_email;
+    @Column(nullable = false, updatable = false)
+    private Integer primary_payment;
 
-    public User(int user_ID, String first_name, String last_name, LocalDate date_of_birth, String gender, int primary_address, int primary_phone, int primary_email, int primary_payment) {
+    public User(Integer user_ID, String first_name, String last_name, LocalDate date_of_birth, String gender, Integer primary_address, Integer primary_phone, Integer primary_email, Integer primary_payment) {
         this.user_ID = user_ID;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -33,12 +42,8 @@ public class User {
 
     }
 
-    public int getUser_ID() {
+    public Integer getUser_ID() {
         return user_ID;
-    }
-
-    public void setUser_ID(int user_ID) {
-        this.user_ID = user_ID;
     }
 
     public String getFirst_name() {
@@ -77,31 +82,31 @@ public class User {
         return primary_address;
     }
 
-    public void setPrimary_address(int primary_address) {
+    public void setPrimary_address(Integer primary_address) {
         this.primary_address = primary_address;
     }
 
-    public int getPrimary_phone() {
+    public Integer getPrimary_phone() {
         return primary_phone;
     }
 
-    public void setPrimary_phone(int primary_phone) {
+    public void setPrimary_phone(Integer primary_phone) {
         this.primary_phone = primary_phone;
     }
 
-    public int getPrimary_email() {
+    public Integer getPrimary_email() {
         return primary_email;
     }
 
-    public void setPrimary_email(int primary_email) {
+    public void setPrimary_email(Integer primary_email) {
         this.primary_email = primary_email;
     }
 
-    public int getPrimary_payment() {
+    public Integer getPrimary_payment() {
         return primary_payment;
     }
 
-    public void setPrimary_payment(int primary_payment) {
+    public void setPrimary_payment(Integer primary_payment) {
         this.primary_payment = primary_payment;
     }
 }
